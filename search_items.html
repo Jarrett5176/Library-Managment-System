@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Library Items</title>
+</head>
+<body>
+    <h1>Search Library Items</h1>
+    <form action="{{ url_for('search_results') }}" method="get">
+        <label for="search_query">Enter item title:</label>
+        <input type="text" id="search_query" name="search_query" required>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

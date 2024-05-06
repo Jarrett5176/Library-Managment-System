@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librarian Dashboard - Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome, {{ current_user.username }}</h1>
+            <p>Librarian Dashboard</p>
+        </header>
+        <nav>
+            <ul>
+                <!-- Add new librarian: This function is typical for an admin or senior librarian -->
+                <li><a href="{{ url_for('add_librarian') }}">Add Librarian</a></li>
+                <!-- Add new patron: Essential for managing library members -->
+                <li><a href="{{ url_for('add_patron') }}">Add Patron</a></li>
+                <!-- Add new library items such as books, CDs, DVDs -->
+                <li><a href="{{ url_for('add_library_item') }}">Add Library Item</a></li>
+                <!-- View and manage all registered users -->
+                <li><a href="{{ url_for('display_users') }}">View All Users</a></li>
+                <!-- Search for users by their library ID -->
+                <li><a href="{{ url_for('search_user_by_id') }}">Search Users by ID</a></li>
+                <!-- View and manage library items -->
+                <li><a href="{{ url_for('search_items') }}">Search Library Items</a></li>
+                <!-- Check and manage checked-out items by users -->
+                <li><a href="{{ url_for('display_user_checkout_items') }}">View Items Checked Out</a></li>
+                <!-- Logout function -->
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+   
+       
+     
+    </div>
+</body>
+</html>

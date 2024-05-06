@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to the Library Management System</h1>
+            <p>{{ message }}</p>
+        </header>
+        <nav>
+            {% if current_user.is_authenticated %}
+                {% if current_user.role == 'Librarian' %}
+                    <a href="{{ url_for('librarian_dashboard') }}">Librarian Dashboard</a>
+                    <a href="{{ url_for('add_librarian') }}">Add Librarian</a>
+                    <a href="{{ url_for('add_patron') }}">Add Patron</a>
+                    <a href="{{ url_for('add_library_item') }}">Add Library Item</a>
+                    <a href="{{ url_for('display_users') }}">View Users</a>
+                {% elif current_user.role == 'Patron' %}
+                    <a href="{{ url_for('patron_dashboard') }}">Patron Dashboard</a>
+                    <a href="{{ url_for('search_items') }}">Search Library Items</a>
+                    <a href="{{ url_for('display_user_checkout_items') }}">View Checked Out Items</a>
+                {% endif %}
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+        </nav>
+    </div>
+</body>
+</html>

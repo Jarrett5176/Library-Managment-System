@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patron Dashboard - Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Your Patron Dashboard, {{ current_user.username }}</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('search_items') }}">Search Library Items</a></li>
+                    <li><a href="{{ url_for('display_user_checkout_items') }}">View Checked Out Items</a></li>
+                    <li><a href="{{ url_for('profile') }}">My Profile</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+       
+    </div>
+</body>
+</html>
